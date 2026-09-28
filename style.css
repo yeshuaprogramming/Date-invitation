@@ -1,0 +1,336 @@
+:root {
+  --pink: #ff4f79;
+  --pink-dark: #ed3e6b;
+  --pink-light: #fff0f4;
+  --ink: #573a46;
+  --muted: #967783;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Fredoka", "Trebuchet MS", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  padding: 24px;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse at 15% 20%, #fff7d6 0, transparent 28%),
+    radial-gradient(ellipse at 85% 80%, #ffd4df 0, transparent 30%),
+    linear-gradient(135deg, #ffe7ed, #ffc3d2 55%, #ffb4ca);
+}
+
+main {
+  width: min(100%, 440px);
+  position: relative;
+  z-index: 2;
+}
+
+.background-hearts {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgba(255, 79, 121, 0.13);
+  font-size: clamp(2rem, 8vw, 5rem);
+  transform: rotate(-12deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+#confettiCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.app-card {
+  width: 100%;
+  padding: 34px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17px;
+  text-align: center;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 22px 60px rgba(174, 63, 97, 0.18);
+  backdrop-filter: blur(12px);
+  animation: card-in 450ms cubic-bezier(.2, .8, .2, 1) both;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.sticker {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  border-radius: 24px;
+  background: var(--pink-light);
+  font-size: 2.5rem;
+  transform: rotate(-5deg);
+}
+
+.eyebrow {
+  color: var(--pink);
+  font-size: .92rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+
+.question-text,
+.step-title,
+.success-text {
+  color: var(--pink-dark);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+.question-text {
+  font-size: clamp(2.2rem, 9vw, 3rem);
+}
+
+.step-title {
+  font-size: clamp(1.7rem, 7vw, 2.2rem);
+}
+
+.success-text {
+  font-size: clamp(2rem, 8vw, 2.6rem);
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.button-box {
+  position: relative;
+  width: 100%;
+  min-height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 5px;
+}
+
+.control-btn {
+  min-height: 52px;
+  padding: 13px 23px;
+  border: 0;
+  border-radius: 17px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(100, 45, 65, .12);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease,
+    left 180ms ease,
+    top 180ms ease;
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 11px 22px rgba(100, 45, 65, .17);
+}
+
+.yes-btn,
+.action-next-btn,
+.finish-btn {
+  color: white;
+  background: var(--pink);
+}
+
+.yes-btn:hover,
+.action-next-btn:hover,
+.finish-btn:hover {
+  background: var(--pink-dark);
+}
+
+/* Nasa tabi muna ito ng Yes. Gagawing fixed ng JavaScript kapag umiwas na. */
+.no-btn {
+  position: relative;
+  color: white;
+  background: #aaa0a5;
+  z-index: 10;
+}
+
+.action-next-btn,
+.finish-btn {
+  width: 100%;
+}
+
+.date-input,
+.time-picker select {
+  min-height: 54px;
+  padding: 12px 14px;
+  border: 2px solid #ffd1dc;
+  border-radius: 15px;
+  outline: none;
+  color: var(--ink);
+  background: white;
+  font-size: 1.05rem;
+}
+
+.date-input {
+  width: 100%;
+  text-align: center;
+}
+
+.date-input:focus,
+.time-picker select:focus {
+  border-color: var(--pink);
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+  width: 100%;
+}
+
+.food-item {
+  min-height: 96px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 2px solid #ffe0e7;
+  border-radius: 17px;
+  color: var(--ink);
+  background: white;
+  font-size: .95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.food-item span {
+  font-size: 1.8rem;
+}
+
+.food-item:hover {
+  transform: translateY(-2px);
+}
+
+.food-item.selected {
+  border-color: var(--pink);
+  background: var(--pink-light);
+  transform: scale(1.03);
+}
+
+.time-picker {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.time-picker select {
+  min-width: 0;
+  cursor: pointer;
+}
+
+#hourPicker {
+  width: 76px;
+}
+
+#minutePicker {
+  width: 84px;
+}
+
+#ampmPicker {
+  width: 88px;
+}
+
+.time-colon {
+  color: var(--pink);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.receipt-box {
+  width: 100%;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  border: 2px dashed #ff9db4;
+  border-radius: 19px;
+  background: #fff9fb;
+  text-align: left;
+}
+
+.receipt-box p {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 1rem;
+}
+
+.receipt-box span {
+  color: var(--pink-dark);
+  font-weight: 600;
+  text-align: right;
+}
+
+.screenshot-hint {
+  color: var(--muted);
+  font-size: .9rem;
+  font-style: italic;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 420px) {
+  .app-card {
+    padding: 28px 20px;
+  }
+
+  .control-btn {
+    padding-inline: 17px;
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

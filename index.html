@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Will you be my date? 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-hearts" aria-hidden="true">💗　💕　💖　💞　💗</div>
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <main>
+    <section class="app-card" id="mainCard">
+      <div class="sticker" aria-hidden="true">🌷</div>
+      <p class="eyebrow">I have a tiny question…</p>
+      <h1 class="question-text">Will you be my date?</h1>
+      <p class="subtitle">It would make me really happy 🥺</p>
+      <div class="button-box">
+        <button class="control-btn yes-btn" id="yesBtn">Yes! 💖</button>
+        <button class="control-btn no-btn" id="noBtn">No 💔</button>
+      </div>
+      <p class="tiny-note">Choose wisely hehe 😌</p>
+    </section>
+
+    <section class="app-card hidden" id="successCard">
+      <div class="sticker" aria-hidden="true">🥰</div>
+      <p class="eyebrow">Best answer ever</p>
+      <h1 class="success-text">Yay! I knew it! 💞</h1>
+      <p class="subtitle">Now let's plan something cute together.</p>
+      <button class="control-btn action-next-btn" id="startPlanBtn">Plan our date 🗓️</button>
+    </section>
+
+    <section class="app-card hidden" id="calendarCard">
+      <div class="sticker" aria-hidden="true">📅</div>
+      <p class="eyebrow">First things first</p>
+      <h2 class="step-title">When are you free?</h2>
+      <input type="date" id="datePicker" class="date-input">
+      <button class="control-btn action-next-btn" id="toFoodBtn">Next: choose food ➡️</button>
+    </section>
+
+    <section class="app-card hidden" id="foodCard">
+      <div class="sticker" aria-hidden="true">🍓</div>
+      <p class="eyebrow">The most important decision</p>
+      <h2 class="step-title">What should we eat?</h2>
+      <div class="food-grid">
+        <button class="food-item" data-food="Pizza & Pasta"><span>🍕</span>Pizza & Pasta</button>
+        <button class="food-item" data-food="Sushi / Japanese"><span>🍣</span>Sushi / Japanese</button>
+        <button class="food-item" data-food="Burgers & Fries"><span>🍔</span>Burgers & Fries</button>
+        <button class="food-item" data-food="Steak Night"><span>🥩</span>Steak Night</button>
+        <button class="food-item" data-food="Cafe Date"><span>☕</span>Cafe Date</button>
+        <button class="food-item" data-food="Sweet Desserts"><span>🍦</span>Sweet Desserts</button>
+      </div>
+      <button class="control-btn action-next-btn" id="toTimeBtn">Next: pick a time ➡️</button>
+    </section>
+
+    <section class="app-card hidden" id="timeCard">
+      <div class="sticker" aria-hidden="true">⏰</div>
+      <p class="eyebrow">I'll be there on time!</p>
+      <h2 class="step-title">What time works for you?</h2>
+      <div class="time-picker">
+        <select id="hourPicker" aria-label="Hour"></select>
+        <span class="time-colon">:</span>
+        <select id="minutePicker" aria-label="Minutes"></select>
+        <select id="ampmPicker" aria-label="AM or PM">
+          <option value="AM">AM</option>
+          <option value="PM" selected>PM</option>
+        </select>
+      </div>
+      <button class="control-btn finish-btn" id="finishBtn">Lock it in! 🔒✨</button>
+    </section>
+
+    <section class="app-card hidden" id="summaryCard">
+      <div class="sticker" aria-hidden="true">💌</div>
+      <p class="eyebrow">Officially official</p>
+      <h1 class="success-text">It's a date! 🗓️💞</h1>
+      <div class="receipt-box">
+        <p><strong>📅 Date</strong><span id="resDate">—</span></p>
+        <p><strong>🍲 Food</strong><span id="resFood">—</span></p>
+        <p><strong>⏰ Time</strong><span id="resTime">—</span></p>
+      </div>
+      <p class="screenshot-hint">Screenshot this and send it to me! 📸</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
